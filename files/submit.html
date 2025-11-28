@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Your Solution - Rural Healthcare Rescue Challenge</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        /* Navigation */
+        nav {
+            background: #1a365d;
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        nav .logo {
+            color: white;
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        
+        nav a:hover {
+            opacity: 0.8;
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Header */
+        .page-header {
+            background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+        }
+        
+        .page-header p {
+            font-size: 1.2rem;
+            margin-top: 1rem;
+            opacity: 0.95;
+        }
+        
+        /* Section */
+        section {
+            padding: 4rem 2rem;
+        }
+        
+        .content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: #4a5568;
+        }
+        
+        .content h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: #1a365d;
+        }
+        
+        .content h3 {
+            font-size: 1.6rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            color: #2563eb;
+        }
+        
+        .content p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .content ul, .content ol {
+            margin: 1.5rem 0;
+            padding-left: 2rem;
+        }
+        
+        .content li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .content strong {
+            color: #1a365d;
+        }
+        
+        /* Highlight Box */
+        .highlight-box {
+            background: #eff6ff;
+            border-left: 4px solid #2563eb;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+        
+        .highlight-box strong {
+            color: #1e40af;
+        }
+        
+        /* Warning Box */
+        .warning-box {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+        
+        .warning-box strong {
+            color: #92400e;
+        }
+        
+        /* Format Grid */
+        .format-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .format-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            border-top: 4px solid #2563eb;
+        }
+        
+        .format-card h4 {
+            color: #1a365d;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+        
+        .format-card p, .format-card ul {
+            font-size: 1rem;
+            color: #4a5568;
+        }
+        
+        .format-card ul {
+            padding-left: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        /* Form Section */
+        .form-section {
+            background: #f7fafc;
+            padding: 3rem;
+            border-radius: 12px;
+            margin-top: 3rem;
+        }
+        
+        .form-section h3 {
+            color: #1a365d;
+            margin-top: 0;
+        }
+        
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        label {
+            font-weight: 600;
+            color: #1a365d;
+            margin-bottom: 0.5rem;
+        }
+        
+        input, textarea, select {
+            padding: 0.8rem;
+            font-size: 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 6px;
+            font-family: inherit;
+        }
+        
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+        
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .submit-button {
+            background: #2563eb;
+            color: white;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+        }
+        
+        .submit-button:hover {
+            background: #1e40af;
+            transform: translateY(-2px);
+        }
+        
+        /* Footer */
+        footer {
+            background: #1a365d;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        footer a {
+            color: #60a5fa;
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            .content h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">Rural Healthcare Rescue Challenge</a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="submit.html">Submit</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <div class="page-header">
+        <div class="container">
+            <h1>Submit Your Solution</h1>
+            <p>Deadline: February 1, 2026</p>
+        </div>
+    </div>
+
+    <!-- Guidelines Section -->
+    <section>
+        <div class="content">
+            <h2>Submission Guidelines</h2>
+            
+            <div class="highlight-box">
+                <p><strong>The Challenge:</strong> How can we redesign rural healthcare systems to prevent hospital closures and improve access to quality care for rural Americans?</p>
+            </div>
+            
+            <h3>What We're Looking For</h3>
+            <p>We want innovative, actionable solutions that address the root causes of rural hospital closures. Your proposal can focus on any aspect of the problem, including but not limited to:</p>
+            
+            <ul>
+                <li><strong>Policy Reforms:</strong> Changes to Medicare/Medicaid reimbursement, insurance regulations, or healthcare legislation</li>
+                <li><strong>Payment Model Innovations:</strong> New approaches to hospital financing, value-based care models, or payment bundling</li>
+                <li><strong>Financial Restructuring:</strong> Debt relief strategies, new funding mechanisms, or public-private partnerships</li>
+                <li><strong>Technology Solutions:</strong> Telehealth expansion, remote monitoring, AI-assisted diagnostics, or mobile health platforms</li>
+                <li><strong>Care Delivery Models:</strong> Micro-hospitals, urgent care networks, mobile clinics, or hub-and-spoke systems</li>
+                <li><strong>Workforce Solutions:</strong> Provider recruitment and retention strategies, training programs, or scope of practice changes</li>
+                <li><strong>Transportation & Access:</strong> Solutions to help patients reach care more easily</li>
+                <li><strong>Preventive & Community Health:</strong> Programs to reduce hospital utilization through better preventive care</li>
+            </ul>
+            
+            <h3>Submission Formats</h3>
+            <p>Choose ONE of the following formats:</p>
+            
+            <div class="format-grid">
+                <div class="format-card">
+                    <h4>Written Proposal</h4>
+                    <p><strong>Length:</strong> 1-3 pages (single-spaced)</p>
+                    <ul>
+                        <li>PDF or Word document</li>
+                        <li>12-point font, standard margins</li>
+                        <li>Citations and references (not included in page count)</li>
+                    </ul>
+                </div>
+                <div class="format-card">
+                    <h4>Video Presentation</h4>
+                    <p><strong>Length:</strong> 3 minutes maximum</p>
+                    <ul>
+                        <li>MP4 format preferred</li>
+                        <li>Can include slides, visuals, or speaking directly to camera</li>
+                        <li>Upload to Google Drive or YouTube and share link</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <h3>Required Components</h3>
+            <p>Your submission (written or video) must include:</p>
+            
+            <ol>
+                <li><strong>Problem Summary:</strong> Brief overview of the specific issue you're addressing (e.g., payment inadequacy, workforce shortages, maternity care access)</li>
+                <li><strong>Proposed Solution:</strong> Clear description of your idea and how it works</li>
+                <li><strong>Evidence & Reasoning:</strong> Data, research, case studies, or logical arguments supporting your approach</li>
+                <li><strong>Expected Impact:</strong> Who benefits? How many people or hospitals could this help? What outcomes would improve?</li>
+                <li><strong>Implementation Roadmap:</strong> Key steps for putting your solution into practice (who would need to act, what resources are required, timeline)</li>
+                <li><strong>Challenges & Limitations:</strong> Honest assessment of potential obstacles and how they might be addressed</li>
+            </ol>
+            
+            <h3>Evaluation Criteria</h3>
+            <p>Judges will evaluate submissions based on:</p>
+            <ul>
+                <li><strong>Innovation</strong> — Originality and creativity of the solution</li>
+                <li><strong>Feasibility</strong> — Could this realistically be implemented?</li>
+                <li><strong>Impact</strong> — Potential to prevent closures and improve access to care</li>
+                <li><strong>Clarity</strong> — How well-organized and clearly communicated is your proposal?</li>
+                <li><strong>Evidence</strong> — Quality of research, data, and reasoning supporting your idea</li>
+            </ul>
+            
+            <div class="warning-box">
+                <p><strong>Important:</strong> Plagiarism will result in immediate disqualification. All sources must be properly cited. Original thinking is required — you can build on existing ideas, but your proposal must offer new insights or approaches.</p>
+            </div>
+            
+            <h3>Submission Process</h3>
+            <p>Submit your proposal using the form below. You'll need:</p>
+            <ul>
+                <li>Your name, email, school, and year/grade</li>
+                <li>Team member info (if applicable)</li>
+                <li>Your proposal file or video link</li>
+                <li>Brief title and 2-3 sentence summary of your solution</li>
+            </ul>
+            
+            <p><strong>Deadline:</strong> February 1, 2026 at 11:59 PM EST</p>
+            
+            <!-- Submission Form -->
+            <div class="form-section">
+                <h3>Submission Form</h3>
+                <p style="color: #4a5568; margin-bottom: 2rem;">Fill out the form below to submit your proposal. All fields are required unless marked optional.</p>
+                
+                <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                    <div class="form-group">
+                        <label for="name">Your Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="school">School/University *</label>
+                        <input type="text" id="school" name="school" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="year">Year/Grade Level *</label>
+                        <select id="year" name="year" required>
+                            <option value="">Select...</option>
+                            <option value="High School - 9th Grade">High School - 9th Grade</option>
+                            <option value="High School - 10th Grade">High School - 10th Grade</option>
+                            <option value="High School - 11th Grade">High School - 11th Grade</option>
+                            <option value="High School - 12th Grade">High School - 12th Grade</option>
+                            <option value="Undergraduate - Freshman">Undergraduate - Freshman</option>
+                            <option value="Undergraduate - Sophomore">Undergraduate - Sophomore</option>
+                            <option value="Undergraduate - Junior">Undergraduate - Junior</option>
+                            <option value="Undergraduate - Senior">Undergraduate - Senior</option>
+                            <option value="Graduate Student">Graduate Student</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="team">Team Members (Optional)</label>
+                        <input type="text" id="team" name="team" placeholder="Names and emails of any team members">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="title">Proposal Title *</label>
+                        <input type="text" id="title" name="title" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="summary">Brief Summary (2-3 sentences) *</label>
+                        <textarea id="summary" name="summary" required placeholder="Provide a brief overview of your solution"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="format">Submission Format *</label>
+                        <select id="format" name="format" required>
+                            <option value="">Select...</option>
+                            <option value="Written Proposal (PDF/Word)">Written Proposal (PDF/Word)</option>
+                            <option value="Video Presentation">Video Presentation</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="link">Submission Link *</label>
+                        <input type="url" id="link" name="link" required placeholder="Google Drive link, Dropbox link, or YouTube link">
+                        <small style="color: #6b7280; margin-top: 0.5rem; display: block;">Make sure your link is set to "Anyone with the link can view"</small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="how-heard">How did you hear about this challenge? (Optional)</label>
+                        <input type="text" id="how-heard" name="how-heard" placeholder="Social media, friend, professor, etc.">
+                    </div>
+                    
+                    <button type="submit" class="submit-button">Submit Your Proposal</button>
+                </form>
+                
+                <p style="margin-top: 2rem; color: #6b7280; font-size: 0.95rem;">By submitting, you confirm that your work is original and that you have permission to use any cited sources. You grant the Rural Healthcare Rescue Challenge permission to share your proposal publicly if selected as a winner.</p>
+            </div>
+            
+            <div class="highlight-box" style="margin-top: 3rem;">
+                <p><strong>Questions?</strong> Email us at <a href="mailto:graceboyle2025@gmail.com" style="color: #2563eb;">graceboyle2025@gmail.com</a> — we're here to help!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p><strong>Rural Healthcare Rescue Challenge</strong></p>
+            <p style="margin-top: 1rem;">A student-led initiative to crowdsource solutions for the rural hospital closure crisis</p>
+            <p style="margin-top: 1rem;">Questions? Contact us at <a href="mailto:graceboyle2025@gmail.com">graceboyle2025@gmail.com</a></p>
+            <p style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.8;">&copy; 2025 Rural Healthcare Rescue Challenge. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

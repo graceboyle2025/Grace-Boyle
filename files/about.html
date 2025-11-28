@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Rural Healthcare Rescue Challenge</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        /* Navigation */
+        nav {
+            background: #1a365d;
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        nav .logo {
+            color: white;
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        
+        nav a:hover {
+            opacity: 0.8;
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Header */
+        .page-header {
+            background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+        }
+        
+        /* Section */
+        section {
+            padding: 4rem 2rem;
+        }
+        
+        section h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: #1a365d;
+        }
+        
+        section h3 {
+            font-size: 1.6rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: #2563eb;
+        }
+        
+        .content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: #4a5568;
+        }
+        
+        .content p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .content ul {
+            margin: 1.5rem 0;
+            padding-left: 2rem;
+        }
+        
+        .content li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .content strong {
+            color: #1a365d;
+        }
+        
+        /* Highlight Box */
+        .highlight-box {
+            background: #eff6ff;
+            border-left: 4px solid #2563eb;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+        
+        .highlight-box p {
+            margin-bottom: 0;
+        }
+        
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .stat-card h3 {
+            color: #2563eb;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            margin-top: 0;
+        }
+        
+        .stat-card p {
+            color: #4a5568;
+            font-size: 1rem;
+        }
+        
+        /* Criteria Grid */
+        .criteria-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .criteria-card {
+            background: #f7fafc;
+            padding: 2rem;
+            border-radius: 12px;
+            border-top: 4px solid #2563eb;
+        }
+        
+        .criteria-card h4 {
+            color: #1a365d;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .criteria-card p {
+            color: #4a5568;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+        
+        /* CTA Button */
+        .cta-button {
+            display: inline-block;
+            background: #2563eb;
+            color: white;
+            padding: 1rem 2.5rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-top: 2rem;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            background: #1e40af;
+        }
+        
+        .center {
+            text-align: center;
+        }
+        
+        /* Footer */
+        footer {
+            background: #1a365d;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        footer a {
+            color: #60a5fa;
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .page-header h1 {
+                font-size: 2rem;
+            }
+            
+            section h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">Rural Healthcare Rescue Challenge</a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="submit.html">Submit</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <div class="page-header">
+        <div class="container">
+            <h1>About the Challenge</h1>
+        </div>
+    </div>
+
+    <!-- Mission Section -->
+    <section>
+        <div class="content">
+            <h2>Our Mission</h2>
+            <p>The Rural Healthcare Rescue Challenge is a student-led initiative to crowdsource innovative, actionable solutions for one of America's most urgent and under-discussed healthcare crises: rural hospital closures.</p>
+            
+            <p>Over 700 rural hospitals — one-third of all rural hospitals in America — are at risk of closing in the next few years. Since 2015, over 100 have already closed. Over 100 hospitals have eliminated maternity services since 2021 alone. Millions of rural Americans now face dangerous delays in emergency care, loss of critical health services, and deteriorating health outcomes.</p>
+            
+            <p><strong>We believe students can help solve this crisis.</strong></p>
+            
+            <p>This competition aims to elevate student voices, generate creative solutions, and demonstrate that the next generation is ready to tackle complex healthcare challenges with fresh thinking and bold ideas.</p>
+        </div>
+    </section>
+
+    <!-- Why This Matters Section -->
+    <section style="background: #f7fafc;">
+        <div class="content">
+            <h2>Why This Matters</h2>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>700+</h3>
+                    <p>Rural hospitals at risk of closing (1 in 3)</p>
+                </div>
+                <div class="stat-card">
+                    <h3>300+</h3>
+                    <p>At immediate risk in the next 2-3 years</p>
+                </div>
+                <div class="stat-card">
+                    <h3>100+</h3>
+                    <p>Maternity units closed since 2021</p>
+                </div>
+            </div>
+            
+            <h3>The Human Impact</h3>
+            <ul>
+                <li><strong>Higher mortality rates:</strong> Rural Americans face longer travel times to emergency care, leading to preventable deaths from heart attacks, strokes, accidents, and pregnancy complications.</li>
+                <li><strong>Maternal health crisis:</strong> With less than half of rural hospitals offering labor and delivery services, pregnant women must travel hours to give birth — creating dangerous risks for mothers and babies.</li>
+                <li><strong>Economic devastation:</strong> Hospital closures lead to job losses, population decline, and community economic collapse. Hospitals are often the largest employer in rural towns.</li>
+                <li><strong>Chronic disease mismanagement:</strong> Without local access to care, patients with diabetes, heart disease, and other chronic conditions face worse outcomes and higher costs.</li>
+                <li><strong>Mental health gaps:</strong> Rural communities already face severe mental health provider shortages. Hospital closures eliminate critical access points for mental health and addiction treatment.</li>
+            </ul>
+            
+            <h3>The Root Causes</h3>
+            <p>Most people assume rural hospital closures are driven by Medicare and Medicaid underpayment. While that's a factor, the primary driver is actually <strong>inadequate payments from private insurance plans</strong>. Small rural hospitals lose money on patient services while urban hospitals profit from the same services.</p>
+            
+            <p>Additional challenges include:</p>
+            <ul>
+                <li>Workforce shortages (physicians, nurses, specialists)</li>
+                <li>High infrastructure and staffing costs for low patient volumes</li>
+                <li>Lack of access to capital for modernization</li>
+                <li>Geographic isolation and transportation barriers</li>
+                <li>Aging populations with complex health needs</li>
+            </ul>
+            
+            <div class="highlight-box">
+                <p><strong>This is a solvable problem.</strong> There are proven models and innovative ideas that can work — but they need to be scaled, funded, and implemented. That's where you come in.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Who Should Participate Section -->
+    <section>
+        <div class="content">
+            <h2>Who Should Participate</h2>
+            <p>We welcome submissions from:</p>
+            <ul>
+                <li><strong>Undergraduate students</strong> studying public health, economics, policy, pre-med, healthcare administration, finance, engineering, data science, or related fields</li>
+                <li><strong>High school students</strong> interested in healthcare, rural economics, public policy, or social impact</li>
+                <li><strong>Individuals or teams</strong> — you can submit solo or collaborate with classmates</li>
+            </ul>
+            
+            <p><strong>You don't need to be a healthcare expert to participate.</strong> We're looking for creative thinking, innovative approaches, and bold ideas from diverse perspectives. Some of the best solutions may come from students who bring fresh eyes to this problem.</p>
+        </div>
+    </section>
+
+    <!-- Judging Criteria Section -->
+    <section style="background: #f7fafc;">
+        <div class="content">
+            <h2>Judging Criteria</h2>
+            <p>Submissions will be evaluated by a panel of healthcare policy experts, rural health researchers, physicians, and hospital administrators. Judges will score proposals based on:</p>
+            
+            <div class="criteria-grid">
+                <div class="criteria-card">
+                    <h4>Innovation</h4>
+                    <p>How original and creative is your solution? Does it offer a fresh perspective or new approach to the problem?</p>
+                </div>
+                <div class="criteria-card">
+                    <h4>Feasibility</h4>
+                    <p>Could this actually work in the real world? Have you considered practical implementation challenges, costs, and scalability?</p>
+                </div>
+                <div class="criteria-card">
+                    <h4>Impact</h4>
+                    <p>What is the potential reach and effectiveness of your solution? Could it prevent closures and meaningfully improve access to care?</p>
+                </div>
+                <div class="criteria-card">
+                    <h4>Clarity</h4>
+                    <p>Is your proposal well-organized, clearly written, and easy to understand? Can a diverse audience grasp your idea?</p>
+                </div>
+                <div class="criteria-card">
+                    <h4>Evidence</h4>
+                    <p>Have you supported your proposal with data, research, case studies, or expert sources? Is your reasoning sound?</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What Happens Next Section -->
+    <section>
+        <div class="content">
+            <h2>What Happens Next</h2>
+            <p>After the submission deadline on <strong>February 1, 2026</strong>, our judging panel will review all entries and select winners based on the criteria above.</p>
+            
+            <p><strong>Winners will receive:</strong></p>
+            <ul>
+                <li>Prizes (TBA)</li>
+                <li>Publication of their proposals on our website and social media</li>
+                <li>Potential sharing with policymakers, rural health organizations, and media outlets</li>
+                <li>Recognition and networking opportunities with healthcare leaders</li>
+            </ul>
+            
+            <p><strong>All participants will:</strong></p>
+            <ul>
+                <li>Gain valuable experience tackling a real-world policy challenge</li>
+                <li>Build their resume with a substantive project demonstrating leadership and social impact</li>
+                <li>Contribute to an urgent national conversation on healthcare equity</li>
+            </ul>
+            
+            <div class="center">
+                <a href="submit.html" class="cta-button">Submit Your Solution</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p><strong>Rural Healthcare Rescue Challenge</strong></p>
+            <p style="margin-top: 1rem;">A student-led initiative to crowdsource solutions for the rural hospital closure crisis</p>
+            <p style="margin-top: 1rem;">Questions? Contact us at <a href="mailto:graceboyle2025@gmail.com">graceboyle2025@gmail.com</a></p>
+            <p style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.8;">&copy; 2025 Rural Healthcare Rescue Challenge. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

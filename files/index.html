@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rural Healthcare Rescue Challenge</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        /* Navigation */
+        nav {
+            background: #1a365d;
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        nav .logo {
+            color: white;
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        
+        nav a:hover {
+            opacity: 0.8;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+            color: white;
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+        
+        .hero .stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .hero .stat {
+            text-align: center;
+        }
+        
+        .hero .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .hero .stat-label {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #2563eb;
+            padding: 1rem 2.5rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-top: 1rem;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Section */
+        section {
+            padding: 4rem 2rem;
+        }
+        
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #1a365d;
+            text-align: center;
+        }
+        
+        /* Problem Section */
+        .problem {
+            background: #f7fafc;
+        }
+        
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .problem-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .problem-card h3 {
+            color: #2563eb;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .problem-card p {
+            color: #4a5568;
+            line-height: 1.8;
+        }
+        
+        /* Challenge Section */
+        .challenge {
+            background: white;
+        }
+        
+        .challenge-content {
+            max-width: 800px;
+            margin: 2rem auto;
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: #4a5568;
+        }
+        
+        .challenge-content strong {
+            color: #1a365d;
+        }
+        
+        .focus-areas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .focus-area {
+            background: #eff6ff;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 500;
+            color: #1e40af;
+        }
+        
+        /* Timeline Section */
+        .timeline {
+            background: #f7fafc;
+        }
+        
+        .timeline-items {
+            max-width: 600px;
+            margin: 3rem auto;
+        }
+        
+        .timeline-item {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            align-items: start;
+        }
+        
+        .timeline-date {
+            background: #2563eb;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-weight: 600;
+            white-space: nowrap;
+            min-width: 140px;
+            text-align: center;
+        }
+        
+        .timeline-content {
+            flex: 1;
+        }
+        
+        .timeline-content h3 {
+            color: #1a365d;
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-content p {
+            color: #4a5568;
+        }
+        
+        /* Footer */
+        footer {
+            background: #1a365d;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        footer a {
+            color: #60a5fa;
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .hero .stats {
+                gap: 1.5rem;
+            }
+            
+            .hero .stat-number {
+                font-size: 2rem;
+            }
+            
+            section h2 {
+                font-size: 2rem;
+            }
+            
+            .timeline-item {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="index.html" class="logo">Rural Healthcare Rescue Challenge</a>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="submit.html">Submit</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="container">
+            <h1>What if the nearest ER was 30 minutes away?</h1>
+            <p class="subtitle">Rural hospitals are closing. Communities are losing access to life-saving care.<br>We need your solutions.</p>
+            
+            <div class="stats">
+                <div class="stat">
+                    <span class="stat-number">700+</span>
+                    <span class="stat-label">Rural hospitals at risk of closing</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">100+</span>
+                    <span class="stat-label">Hospitals closed in the past decade</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">Millions</span>
+                    <span class="stat-label">Americans losing access to care</span>
+                </div>
+            </div>
+            
+            <a href="submit.html" class="cta-button">Submit Your Solution</a>
+        </div>
+    </div>
+
+    <!-- Problem Section -->
+    <section class="problem">
+        <div class="container">
+            <h2>The Crisis</h2>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <h3>Hospital Closures Accelerating</h3>
+                    <p>Over 100 rural hospitals have closed in the past decade, and 700+ more — one-third of all rural hospitals — are at immediate risk of closing in the next few years.</p>
+                </div>
+                <div class="problem-card">
+                    <h3>Maternity Care Disappearing</h3>
+                    <p>Over 100 rural hospitals have stopped delivering babies since 2021. Less than half of rural hospitals still offer labor and delivery services, forcing pregnant women to travel hours for care.</p>
+                </div>
+                <div class="problem-card">
+                    <h3>Communities Left Behind</h3>
+                    <p>When rural hospitals close, communities lose emergency rooms, clinics, mental health services, and chronic disease management. This leads to higher mortality rates, economic decline, and population outflow.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Challenge Section -->
+    <section class="challenge">
+        <div class="container">
+            <h2>The Challenge</h2>
+            <div class="challenge-content">
+                <p><strong>How can we redesign rural healthcare systems to prevent hospital closures and improve access to quality care for rural Americans?</strong></p>
+                
+                <p>We're calling on undergraduate and high school students to propose innovative solutions — policy reforms, payment model redesigns, technological innovations, and new care delivery systems that can prevent closures and restore access to essential services.</p>
+                
+                <h3 style="margin-top: 2rem; margin-bottom: 1rem; color: #1a365d;">Focus Areas</h3>
+                <div class="focus-areas">
+                    <div class="focus-area">Policy Reforms</div>
+                    <div class="focus-area">Payment Models</div>
+                    <div class="focus-area">Telehealth</div>
+                    <div class="focus-area">Financial Restructuring</div>
+                    <div class="focus-area">Workforce Solutions</div>
+                    <div class="focus-area">Technology Integration</div>
+                    <div class="focus-area">Transportation Access</div>
+                    <div class="focus-area">New Care Models</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="timeline">
+        <div class="container">
+            <h2>Timeline</h2>
+            <div class="timeline-items">
+                <div class="timeline-item">
+                    <div class="timeline-date">Now - Jan 15</div>
+                    <div class="timeline-content">
+                        <h3>Registration Open</h3>
+                        <p>Begin working on your submission. Explore the problem, research solutions, and develop your proposal.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">February 1, 2026</div>
+                    <div class="timeline-content">
+                        <h3>Submissions Due</h3>
+                        <p>Final deadline for all written proposals and video submissions.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Feb 1 - 15</div>
+                    <div class="timeline-content">
+                        <h3>Judging Period</h3>
+                        <p>Expert panel of healthcare policy researchers, physicians, and rural health specialists review submissions.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">February 20, 2026</div>
+                    <div class="timeline-content">
+                        <h3>Winners Announced</h3>
+                        <p>Top proposals announced and shared with policymakers, researchers, and the public.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="submit.html" class="cta-button">Learn More & Submit</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <p><strong>Rural Healthcare Rescue Challenge</strong></p>
+            <p style="margin-top: 1rem;">A student-led initiative to crowdsource solutions for the rural hospital closure crisis</p>
+            <p style="margin-top: 1rem;">Questions? Contact us at <a href="mailto:graceboyle2025@gmail.com">graceboyle2025@gmail.com</a></p>
+            <p style="margin-top: 2rem; font-size: 0.9rem; opacity: 0.8;">&copy; 2025 Rural Healthcare Rescue Challenge. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
